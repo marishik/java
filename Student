@@ -1,0 +1,62 @@
+package education;
+
+import java.util.List;
+
+/*
+у студента есть имя и фамилия, а также результаты по выполненной им работе
+он может получить информацию о том, сколько из 6 баллов он набрал, есть ли у него допуск к экзамену и
+какая у него предварительная оценка
+ */
+public class Student {
+    String FirstName;
+    String LastName;
+
+    public Student(){
+
+    }
+    public String getFirstName(){
+        return FirstName;
+    }
+
+    public String getLastName(){
+        return LastName;
+    }
+
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public void ShowTheResult(String firstName, String lastname, int result,
+                                boolean opportunityToPassExam, int forwardEstimate){
+
+        System.out.print(firstName + lastname + "\n");
+        System.out.print(HowManyPointsScored(result));
+        System.out.print(HaveOppToPassExam(opportunityToPassExam));
+        System.out.print(WhichForwardEstimate(forwardEstimate));
+    }
+
+    public static String HowManyPointsScored(int result){
+        String resultOfTasks = "Заданий из 6 : " + Integer.toString(result);
+        return resultOfTasks;
+    }
+
+    public static String HaveOppToPassExam(boolean opportunityToPassExam){
+        String exam = "";
+        if(opportunityToPassExam)
+            exam = "Да";
+        else exam = "Нет";
+
+        String resultOfOpportunityToPass = "Допуск к экзамену: " + exam;
+        return resultOfOpportunityToPass;
+    }
+
+    public static String WhichForwardEstimate (int forwardEstimate){
+        String estimate = "Предварительная оценка (пятибалльная шкала) : " + Integer.toString(forwardEstimate);
+        return estimate;
+    }
+
+}
